@@ -41,7 +41,7 @@ const config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#ffb86c",
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
@@ -52,6 +52,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        base:{
+          100:"#282a36",
+          200:"#242631",
+          300:"#20222c",
+          content:"#a6adbb",
+        },
+        neutral:{
+          DEFAULT:"#414558",
+          content:"#c2cbf5",
+        },
+        orange:{
+          DEFAULT:"#ff5861"
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

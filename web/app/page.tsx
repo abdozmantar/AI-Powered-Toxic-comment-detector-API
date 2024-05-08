@@ -27,7 +27,7 @@ const codeBlock = `const res = await fetch("${API_URL}", {
 })`
 
 export default function Home() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("write some bad word");
   const [response, setResponse] = useState("");
   const [isPending, startTransition] = useTransition();
   const user = useCurrentUser();
@@ -54,47 +54,46 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <main className="flex flex-col bg-slate-200/50">
-        <section className="w-full flex flex-col items-center flex-wrap justify-center p-5 md:p-20 gap-5 xl:flex-row xl:items-start">
+      <main className="flex flex-col bg-base-100">
+        <section className="w-full flex flex-col items-center flex-wrap justify-center p-10 md:p-20 gap-20 xl:flex-row xl:items-start">
           <div className="max-w-md flex flex-col gap-2">
-            <h1 className="font-bold text-4xl text-orange-600">HateHoundAPI</h1>
-            <h4 className="font-bold text-zinc-900/60">Your Fast, Free, AI-Powered Toxic Content Detector</h4>
+            <h4 className="font-bold text-3xl lg:text-5xl text-white leading-tight">Your Fast, Free, AI-Powered Toxic Comment Detector</h4>
 
-            <p className="text-zinc-700">Detecting toxic content has traditionally been slow and costly. But not anymore. With HateHoundAPI, you can now swiftly identify and filter out toxic content in your web applications.
+            <p className="text-base-content text-sm">Detecting toxic comment has traditionally been slow and costly. But not anymore. With HateHoundAPI, you can now swiftly identify and filter out toxic content in your web applications.
               Powered by state-of-the-art AI technology, HateHoundAPI offers:</p>
-            <div className="flex flex-col gap-2 bg-slate-500/10 p-3 rounded-md">
+            <div className="flex flex-col gap-2 bg-base-200 p-3 rounded-md">
               <div className="flex items-center gap-2">
-                <CheckCircledIcon className="w-6 h-6 text-orange-600" />
-                <span className={cn("text-md text-gray-900 drop-shadow-md", font.className)}>Lightning-fast detection</span>
+                <CheckCircledIcon className="w-6 h-6 text-orange" />
+                <span className={cn("text-md text-base-content drop-shadow-md", font.className)}>Lightning-fast detection</span>
               </div>
             </div>
-            <div className="flex flex-col gap-2 bg-slate-500/10 p-3 rounded-md">
+            <div className="flex flex-col gap-2 bg-base-200 p-3 rounded-md">
               <div className="flex items-center gap-2">
-                <CheckCircledIcon className="w-6 h-6 text-orange-600" />
-                <span className={cn("text-md text-gray-900 drop-shadow-md", font.className)}>High accuracy rates</span>
+                <CheckCircledIcon className="w-6 h-6 text-orange" />
+                <span className={cn("text-md text-base-content drop-shadow-md", font.className)}>High accuracy rates</span>
               </div>
             </div>
-            <div className="flex flex-col gap-2 bg-slate-500/10 p-3 rounded-md">
+            <div className="flex flex-col gap-2 bg-base-200 p-3 rounded-md">
               <div className="flex items-center gap-2">
-                <CheckCircledIcon className="w-6 h-6 text-orange-600" />
-                <span className={cn("text-md text-gray-900 drop-shadow-md", font.className)}>100% free and open-source</span>
+                <CheckCircledIcon className="w-6 h-6 text-orange" />
+                <span className={cn("text-md text-base-content drop-shadow-md", font.className)}>100% free and open-source</span>
               </div>
             </div>
-            <p className="text-zinc-700">Say goodbye to slow and expensive moderation processes. Embrace HateHoundAPI for efficient, and reliable toxic content detection in real-time.</p>
+            <p className="text-base-content text-sm">Say goodbye to slow and expensive moderation processes. Embrace HateHoundAPI for efficient, and reliable toxic content detection in real-time.</p>
           </div>
-          <Card className="w-full max-w-lg bg-slate-400/10 shadow-none border-2 border-gray-500/10 mt-9">
+          <Card className="w-full max-w-md bg-base-300 shadow-none border border-accent mt-9">
             <CardHeader>
-              <CardTitle className={"text-lg font-semibold text-center"}>
+              <CardTitle className={"text-lg font-semibold text-center text-base-content"}>
                 {"Try It"}
               </CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
               <div className="flex w-full items-center gap-3">
-                <div className="p-2 bg-orange-950 rounded-md text-white text-sm font-semibold">
+                <div className="p-2 bg-base-content rounded-md text-base-100 text-sm font-semibold">
                   POST
                 </div>
                 <div>
-                  <p className="font-semibold">{API_TEST_URL}</p>
+                  <p className="font-semibold text-base-content">{API_TEST_URL}</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -102,7 +101,7 @@ export default function Home() {
                   disabled={isPending}
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
-                  className="bg-white"
+                  className="bg-base-100 select-none border border-base-content/20 text-base-content focus-visible:ring-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-base-content/20"
                   required
                 />
               </div>
@@ -110,8 +109,8 @@ export default function Home() {
                 <Button
                   disabled={isPending || value.length == 0}
                   onClick={() => Test(value)}
-                  variant={"destructive"}
-                  className="w-full" >
+                  variant={"primary"}
+                  className="w-full shadow-lg" >
                   {isPending ? (
                     <SymbolIcon className="animate-spin w-5 h-5" />
                   ) : (
@@ -127,15 +126,15 @@ export default function Home() {
             </CardContent>
           </Card>
         </section>
-        <section className="w-full flex justify-center p-8 bg-white">
+        <section className="w-full flex justify-center p-8 bg-neutral">
           <div className=" flex flex-col justify-center space-y-6 text-center space-x-4">
             <div className="flex justify-center items-center gap-2">
-              <GitHubLogoIcon className="w-9 h-9" />
-              <h1 className={cn("text-4xl font-semibold text-gray-900 drop-shadow-md", font.className)}>
+              <GitHubLogoIcon className="w-9 h-9 text-neutral-content" />
+              <h1 className={cn("text-4xl font-semibold text-neutral-content drop-shadow-md", font.className)}>
                 {"GITHUB"}
               </h1>
             </div>
-            <div className="leading-tight">
+            <div className="leading-tight text-neutral-content">
               <p>
                 Get your special <span className="bg-slate-800 text-white px-1">access_token</span> by connecting your github and start using our API
               </p>
@@ -148,6 +147,7 @@ export default function Home() {
                     onClick={() => signOut()}
                     variant={"secondary"}
                     size={"lg"}
+                    className="shadow-lg"
                   >
                     <ExitIcon className="w-5 h-5 mr-1" />
                     Sign out
@@ -159,6 +159,7 @@ export default function Home() {
                   onClick={() => onClick("github")}
                   variant={"default"}
                   size={"lg"}
+                  className="shadow-xl"
                 >
                   <GitHubLogoIcon className="w-5 h-5 mr-1" />
                   Connect
@@ -168,16 +169,16 @@ export default function Home() {
 
           </div>
         </section>
-        <section className="w-full flex justify-center py-20">
+        <section className="w-full flex justify-center py-20 bg-base-200">
           <div
             id='api'
             className='flex text-center flex-col gap-12 px-4'>
-            <p className={cn("text-4xl font-semibold text-gray-900 drop-shadow-md", font.className)}>Try our API</p>
+            <p className={cn("text-5xl font-semibold text-white drop-shadow-md", font.className)}>Try our API</p>
             <CodeReviwer code={codeBlock} />
           </div>
         </section>
       </main>
-      <footer className="py-5">
+      <footer className="py-5 bg-base-200 ">
         <p className="text-center text-gray-500">
           <a href="">All right reserved by abdullah ozmantar</a>
         </p>

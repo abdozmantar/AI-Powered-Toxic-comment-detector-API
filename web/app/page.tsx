@@ -15,6 +15,7 @@ import { useState, useTransition } from "react";
 import ResponseViewer from "@/components/home/response-viewer";
 import { cn } from "@/lib/utils";
 import TokenViewer from "@/components/home/token-viewer";
+
 const font = Poppins({
   subsets: ["latin"],
   weight: ["600"],
@@ -27,7 +28,7 @@ const codeBlock = `const res = await fetch("${API_URL}", {
 })`
 
 export default function Home() {
-  const [value, setValue] = useState("write some bad word");
+  const [value, setValue] = useState("");
   const [response, setResponse] = useState("");
   const [isPending, startTransition] = useTransition();
   const user = useCurrentUser();
@@ -99,6 +100,7 @@ export default function Home() {
               <div className="flex items-center">
                 <Input
                   disabled={isPending}
+                  placeholder={"Enter a comment to analyze toxicity"}
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
                   className="bg-base-100 select-none border border-base-content/20 text-base-content focus-visible:ring-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-base-content/20"

@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "HateHoundAPI",
-  description: "Your Fast, Free, AI-Powered Toxic Content Detector",
+  description: "Your Fast, Free, AI-Powered Toxic Comment Detector",
 };
 
 export default async function RootLayout({

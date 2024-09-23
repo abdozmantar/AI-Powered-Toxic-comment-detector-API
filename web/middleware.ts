@@ -15,7 +15,6 @@ export default auth((req) => {
     const isPublicRoute = publicRoutes.includes(nextUrl.pathname)
 
     if(isApiAuthRoute){
-        //return NextResponse.json({ message: "Not authenticated" }, { status: 401 })
         return NextResponse.next()
     }
 
